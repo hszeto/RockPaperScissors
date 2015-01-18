@@ -1,17 +1,15 @@
+// Listen to player's click and then fire the function which corresponse to the input
 document.getElementById("rock").addEventListener('click', function(){
-	//console.log(compare("rock",cpu_choice() ));
 	document.getElementById("result").innerHTML = compare("rock",cpu_choice() ) + " Computer picked " + computerResponse;
 });
 document.getElementById("paper").addEventListener('click', function(){
-	//console.log(compare("paper",cpu_choice() ));
 	document.getElementById("result").innerHTML = compare("paper",cpu_choice() ) + " Computer picked " + computerResponse;
 });
 document.getElementById("scissors").addEventListener('click', function(){
-	//console.log(compare("scissors",cpu_choice() ));
 	document.getElementById("result").innerHTML = compare("scissors",cpu_choice() ) + " Computer picked " + computerResponse;
 });
 
-	
+// Computer's random pick. 0-0.33=rock. 0.34-0.66=paper. 0.67-1=scissors.
 function cpu_choice(){
 	computerChoice = Math.random();
    if (computerChoice < 0.34) {
@@ -21,9 +19,10 @@ function cpu_choice(){
    } else {
 	   computerResponse = "scissors";
    } 
-   return computerResponse;
+   return computerResponse;     // return computerResponse for this function
 }
  
+// Logic to compare player's and computer's choices
 function compare(choice1, choice2){
     if(choice1 === choice2){
      return "Tie Tie Tie!"   
@@ -33,7 +32,7 @@ function compare(choice1, choice2){
             return "U good. Rock wins."
         }
         else{
-            return "U suck. Paper wins."
+            return "U lose. Paper wins."
         }
     }
     else if(choice1 === "paper"){
@@ -41,7 +40,7 @@ function compare(choice1, choice2){
             return "U good. Paper wins."
         }
         else{
-            return "U suck. Scissors wins."
+            return "U lose. Scissors wins."
         }
     }
     else if(choice1 === "scissors"){
@@ -49,7 +48,7 @@ function compare(choice1, choice2){
             return "U good. Scissors wins."
         }
         else{
-            return "U suck. Rock wins."
+            return "U lose. Rock wins."
         }
     }
 }
